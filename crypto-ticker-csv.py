@@ -71,7 +71,7 @@ interval = get_interval(args.days)
 filename = f"{crypto_name}_{args.currency}_{args.days}d_{interval}_prices.csv"
 with open(filename, "w", newline="") as csvfile:
     writer = csv.writer(csvfile)
-    writer.writerow(["timestamp", "price"])
+    writer.writerow(["timestamp", f"{crypto_name} price in {args.currency}"])
     for price in response.json()["prices"]:
         timestamp = price[0]
         if args.readable_timestamps:
